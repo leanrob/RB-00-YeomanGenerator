@@ -1,0 +1,17 @@
+{
+  "name": "generator-rb00",
+  "version": "1.0.0",
+  "description": "The first Yeoman generator created by Robert Byrne. www.leanrob.com to find out more about this awesome guy!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman"
+  ],
+  "author": "Robert Byrne",
+  "license": "ISC",
+  "dependencies": {
+    "yeoman-generator": "^0.24.1"
+  }
+}
