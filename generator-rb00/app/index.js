@@ -28,8 +28,38 @@ module.exports = generators.Base.extend({
     default: function() {
         this.log('default');
     },
-    writing: function() {
-        this.log('writing');
+    writing: {
+        gulpfile: function() {
+            this.log('writing');
+        },
+        packageJSON: function() {
+            this.log('writing');
+        },
+        git: function() {
+            this.log('writing');
+        },
+        bower: function() {
+            this.log('writing');
+        },
+        appStaticFiles: function() {
+            // this.log('Template Path: ' + this.templatePath());
+            // this.log('Destination Path: ' + this.destinationPath());
+            var source = this.templatePath('_R.ico');
+            var destination = this.destinationPath('src/R.ico');
+           //  this.log('Source: ' + source);
+            // this.log('Destination: ' + destination);
+            // This is actually using the template and destination paths above
+            // Even if it doesn't look like it.
+            // this.copy('_R.ico', 'src/R.ico');
+
+            this.copy(source, destination);
+        },
+        scripts: function() {
+            this.log('writing');
+        },
+        html: function() {
+            this.log('writing');
+        }
     },
     conflicts: function() {
         this.log('conflict');
