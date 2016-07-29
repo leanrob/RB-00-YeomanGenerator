@@ -55,10 +55,58 @@ module.exports = generators.Base.extend({
             this.copy(source, destination);
         },
         scripts: function() {
-            this.log('writing');
+
+            // Loading in some controllers
+            this.fs.copyTpl(
+                this.templatePath('app/_app.js'),
+                this.destinationPath('src/app/app.js'),
+                {
+                    ngapp: 'robs-app'
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath('app/layout/_shell.controller.js'),
+                this.destinationPath('src/app/layout/shell.controller.js'),
+                {
+                    ngapp: 'robs-app'
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath('app/home/_home.controller.js'),
+                this.destinationPath('src/app/home/home.controller.js'),
+                {
+                    ngapp: 'robs-app'
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath('app/about/_about.controller.js'),
+                this.destinationPath('src/app/about/about.controller.js'),
+                {
+                    ngapp: 'robs-app'
+                }
+            );
         },
         html: function() {
-            this.log('writing');
+            this.fs.copyTpl(
+                this.templatePath('_index.html'),
+                this.destinationPath('src/index.html'),
+                {
+                    appname: 'Robs First App',
+                    ngapp: 'robs-app'
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath('app/layout/_shell.html'),
+                this.destinationPath('src/app/layout/shell.html')
+            );
+            this.fs.copyTpl(
+                this.templatePath('app/home/_home.html'),
+                this.destinationPath('src/app/home/home.html')
+            );
+            this.fs.copyTpl(
+                this.templatePath('app/about/_about.html'),
+                this.destinationPath('src/app/about/about.html')
+            );
         }
     },
     conflicts: function() {
@@ -71,7 +119,4 @@ module.exports = generators.Base.extend({
         this.log('end');
     },
     // Any other methods, like below, run in default position
-    customMethod: function() {
-        this.log("runs at default");
-    }
 });
